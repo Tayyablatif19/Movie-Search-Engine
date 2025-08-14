@@ -1,45 +1,53 @@
-# 🎬 Movie Land
+# 🎬 Movie Search App
 
-A simple React application to search for movies using the [OMDb API](http://www.omdbapi.com/).  
-This project allows users to type in a search term, fetch results from the API, and display them in a clean UI.
-
----
-
-### **1. React Basics**
-- How to create and use **functional components**.
-- Using **JSX** to structure UI elements.
-
-### **2. React Hooks**
-- **useState** → For managing component state (e.g., movie list, search term).
-- **useEffect** → For running functions automatically on component load.
-
-### **3. API Integration**
-- Using **fetch** to get data from an external API.
-- Handling **async/await** for asynchronous operations.
-- Parsing **JSON** responses and updating state.
-
-### **4. Conditional Rendering**
-- Displaying different UI components depending on whether movies exist or not.
-
-### **5. Props in Components**
-- Passing movie data as **props** to the `MovieCard` component for reusable UI.
-
-### **6. Event Handling**
-- Capturing user input with `onChange`.
-- Triggering API calls with button clicks (`onClick`).
+A simple React application where users can search for movies by category or keyword, fetch data from the OMDb API, and display results in a clean card layout.  
 
 ---
 
-## 📊 App Flow
+## 📚 What I Learned
+
+### **React Fundamentals**
+- How to create functional components and use them for building reusable UI pieces.
+- Passing props between components for dynamic content.
+- Using state (`useState`) to store and update data based on user interaction.
+- Rendering lists dynamically with `.map()`.
+
+### **Event Handling**
+- Capturing user input from forms and buttons.
+- Handling onClick and onChange events in React.
+- Passing event data to functions to trigger state changes.
+
+### **API Integration**
+- Fetching data from the **OMDb API** using `fetch()`.
+- Handling JSON responses and updating the UI accordingly.
+- Managing loading and error states when fetching data.
+
+### **Conditional Rendering**
+- Showing different UI depending on whether movies are found or not.
+- Displaying fallback messages when search results are empty.
+
+### **Styling**
+- Using CSS for layout and design.
+- Making a responsive grid layout for movie cards.
+- Fixing floating button issues with proper positioning.
+
+---
+
+## 🛠 Tech Stack
+- **React** – Frontend library for building UI.
+- **JavaScript (ES6+)** – Core language features.
+- **CSS3** – Styling the components.
+- **OMDb API** – Movie data source.
+
+---
+
+## 🔍 Flowchart
 
 ```mermaid
-flowchart TD
-    A[User enters movie title in search bar] --> B[Click 'Search' button or press Enter]
-    B --> C[Call fetchMovies() function]
-    C --> D[Send GET request to OMDb API with search term]
-    D --> E[Receive API response in JSON format]
-    E --> F[Check if movies exist]
-    F -->|Yes| G[Update state with movie data]
-    F -->|No| H[Display 'No movies found' message]
-    G --> I[Map through movie list]
-    I --> J[Render each movie as a MovieCard component]
+graph TD
+    A[User Enters Search Term or Selects Category] --> B[Click Search Button]
+    B --> C[Fetch Data from OMDb API]
+    C --> D{Movies Found?}
+    D -- Yes --> E[Display Movies in MovieCard Component]
+    D -- No --> F[Show 'No Movies Found' Message]
+
